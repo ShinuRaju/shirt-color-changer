@@ -12,7 +12,7 @@ const MyComponent: React.FC<IMyComponent> = ({ value, setValue }) => {
         setValue(newValue)
     }
 
-    return <MuiColorInput format="hex" value={value} onChange={handleChange} />
+    return <MuiColorInput sx={{ width: "300px" }} format="hex" value={value} onChange={handleChange} />
 }
 
 export default MyComponent;
