@@ -1,11 +1,14 @@
-import React from 'react'
 import Container from '@mui/material/Container'
-import ImageContainer from './ImageContainer'
+import MuiCheckBox from './MuiCheckBox'
+import DressContainer from './DressContainer'
+import Fields from './Fields'
 
 const Main = () => {
     return (
         <Container maxWidth="lg">
-            <ImageContainer />
+            <Fields />
+            <MuiCheckBox />
+            <DressContainer />
         </Container>
     )
 }
