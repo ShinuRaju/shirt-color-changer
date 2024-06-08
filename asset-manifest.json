@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/shirt-color-changer/static/js/main.532c77b5.js",
+    "main.js": "/shirt-color-changer/static/js/main.84005640.js",
     "index.html": "/shirt-color-changer/index.html",
-    "main.532c77b5.js.map": "/shirt-color-changer/static/js/main.532c77b5.js.map"
+    "main.84005640.js.map": "/shirt-color-changer/static/js/main.84005640.js.map"
   },
   "entrypoints": [
-    "static/js/main.532c77b5.js"
+    "static/js/main.84005640.js"
   ]
 }
