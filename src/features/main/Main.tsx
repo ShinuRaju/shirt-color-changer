@@ -1,13 +1,14 @@
 import Container from '@mui/material/Container'
-import MuiCheckBox from './MuiCheckBox'
-import DressContainer from './DressContainer'
-import Fields from './Fields'
+import DressContainer from './Dress/DressContainer'
+import Fields from './Fields/Fields';
+import Options from './Options'
 
 const Main = () => {
+
     return (
-        <Container maxWidth="lg">
+        <Container sx={{ p: 2 }} maxWidth="lg">
             <Fields />
-            <MuiCheckBox />
+            <Options />
             <DressContainer />
         </Container>
     )

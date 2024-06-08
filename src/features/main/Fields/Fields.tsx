@@ -1,16 +1,14 @@
-import React from 'react'
 import { Stack } from '@mui/material'
-import ShirtText from './ShirtText'
-import PantText from './PantText'
+import ShirtField from './ShirtField'
+import PantField from './PantField'
 
 const Fields = () => {
     return (
         <>
             <Stack direction={{ xs: "column", sm: "column", md: 'column', lg: "row" }} spacing={2} >
-                <ShirtText />
-                <PantText />
-            </Stack>
-
+                <ShirtField />
+                <PantField />
+            </Stack >
         </>
     )
 }

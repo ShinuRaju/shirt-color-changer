@@ -4,9 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../dataStore/store';
 import { setShade } from '../dataStore/localSlice';
 
-
-
-const MuiCheckBox = () => {
+const ShowShade = () => {
     const dispatch = useDispatch()
     const { shade } = useSelector((state: RootState) => state.localSlice)
 
@@ -16,10 +14,10 @@ const MuiCheckBox = () => {
     return (
         <>
             <FormGroup>
-                <FormControlLabel control={<Checkbox onChange={handleChange} checked={shade} />} label="Shade" />
+                <FormControlLabel control={<Checkbox onChange={handleChange} checked={shade} />} label="Show Shade" />
             </FormGroup>
         </>
     )
 }
 
-export default MuiCheckBox
+export default ShowShade

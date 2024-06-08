@@ -1,15 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { IColor } from "../main/Fields/RenderNameField";
 
 export interface IInitialState {
-  shirtColors: Array<string>;
-  pantColors: Array<string>;
+  shirtColors: Array<IColor>;
+  pantColors: Array<IColor>;
   shade: boolean;
+  combinations: boolean;
+  sort: boolean;
+  hex: boolean;
 }
 
 export const initialState: IInitialState = {
   shirtColors: [],
   pantColors: [],
   shade: true,
+  combinations: false,
+  sort: true,
+  hex: false,
 };
 
 const localSlice = createSlice({
@@ -25,7 +32,23 @@ const localSlice = createSlice({
     setShade: (state, action) => {
       state.shade = action.payload;
     },
+    setCombinations: (state, action) => {
+      state.combinations = action.payload;
+    },
+    setSort: (state, action) => {
+      state.sort = action.payload;
+    },
+    setHex: (state, action) => {
+      state.hex = action.payload;
+    },
   },
 });
-export const { setShade, setShirtColors, setPantColors } = localSlice.actions;
+export const {
+  setCombinations,
+  setShirtColors,
+  setPantColors,
+  setHex,
+  setShade,
+  setSort,
+} = localSlice.actions;
 export const localReducer = localSlice.reducer;

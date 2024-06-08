@@ -6,6 +6,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
+    "@mui/icons-material": "^5.15.19",
     "@mui/lab": "^5.0.0-alpha.170",
     "@mui/material": "^5.15.19",
     "@reduxjs/toolkit": "^1.9.7",
@@ -31,7 +32,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -r https://github.com/ShinuRaju/shirt-color-changer.git"
+    "deploy": "gh-pages-clean && gh-pages -d build -r https://github.com/ShinuRaju/shirt-color-changer.git"
   },
   "eslintConfig": {
     "extends": [
