@@ -8,7 +8,7 @@ import ViewHex from './ViewHex'
 const Options = () => {
     return (
         <>
-            <Stack direction={'row'}>
+            <Stack direction={{ xs: 'column', sm: 'column', md: 'row', lg: 'row' }}>
                 <ViewHex />
                 <ShowShade />
                 <ShowCombinations />
