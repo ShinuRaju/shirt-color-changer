@@ -37,6 +37,7 @@ const RenderNameField: React.FC<IRenderNameField> = ({ label, dispatchAction, re
     return (
         <>
             <Autocomplete
+                freeSolo
                 fullWidth
                 multiple
                 value={renderColors}
