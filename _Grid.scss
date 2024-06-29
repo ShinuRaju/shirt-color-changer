@@ -1,0 +1,36 @@
+$columns: 12;
+
+@mixin row {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+}
+
+@mixin col($span) {
+  grid-column: span $span;
+}
+
+@mixin media($breakpoint) {
+  @media (min-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+.row {
+  @include row;
+}
+
+@for $i from 1 through $columns {
+  .col-#{$i} {
+    @include col($i);
+  }
+}
+
+@each $breakpoint, $value in $breakpoints {
+  @include media($breakpoint) {
+    @for $i from 1 through $columns {
+      .col-#{$breakpoint}-#{$i} {
+        @include col($i);
+      }
+    }
+  }
+}

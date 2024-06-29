@@ -1,0 +1,31 @@
+@mixin generate-grid-gap-utilities($map, $breakpoints) {
+  @each $size, $value in $map {
+    .g-#{$size} {
+      gap: $value;
+    }
+    .g-row-#{$size} {
+      row-gap: $value;
+    }
+    .g-col-#{$size} {
+      column-gap: $value;
+    }
+  }
+
+  @each $breakpoint, $min-width in $breakpoints {
+    @media (min-width: $min-width) {
+      @each $size, $value in $map {
+        .g-#{$breakpoint}-#{$size} {
+          gap: $value;
+        }
+        .g-row-#{$breakpoint}-#{$size} {
+          row-gap: $value;
+        }
+        .g-col-#{$breakpoint}-#{$size} {
+          column-gap: $value;
+        }
+      }
+    }
+  }
+}
+
+@include generate-grid-gap-utilities($spacers, $breakpoints);

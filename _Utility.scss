@@ -1,0 +1,126 @@
+// Utility
+// ––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// Clear a float with .clearfix
+.clearfix {
+  &:after {
+    clear: both;
+    content: " "; // The space content is one way to avoid an Opera bug.
+    display: table;
+  }
+}
+
+// Float either direction
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+/*==================*/
+.full-width {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Make sure elements don't run outside containers (great for images in columns) */
+.max-full-width {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.text-dark {
+  color: $text-black;
+}
+
+.text-light {
+  color: $text-white;
+}
+
+.bg-red {
+  background-color: red;
+}
+
+//Spacing utilities==============================
+
+@mixin generate-spacing-utilities($property, $type, $map) {
+  @each $size, $value in $map {
+    .#{$property}-#{$size} {
+      #{$type}: $value;
+    }
+    .#{$property}t-#{$size} {
+      #{$type}-top: $value;
+    }
+    .#{$property}r-#{$size} {
+      #{$type}-right: $value;
+    }
+    .#{$property}b-#{$size} {
+      #{$type}-bottom: $value;
+    }
+    .#{$property}l-#{$size} {
+      #{$type}-left: $value;
+    }
+    .#{$property}x-#{$size} {
+      #{$type}-left: $value;
+      #{$type}-right: $value;
+    }
+    .#{$property}y-#{$size} {
+      #{$type}-top: $value;
+      #{$type}-bottom: $value;
+    }
+  }
+}
+
+@mixin generate-responsive-spacing-utilities(
+  $property,
+  $type,
+  $map,
+  $breakpoints
+) {
+  @each $breakpoint, $min-width in $breakpoints {
+    @media (min-width: $min-width) {
+      @each $size, $value in $map {
+        .#{$property}-#{$breakpoint}-#{$size} {
+          #{$type}: $value;
+        }
+        .#{$property}t-#{$breakpoint}-#{$size} {
+          #{$type}-top: $value;
+        }
+        .#{$property}r-#{$breakpoint}-#{$size} {
+          #{$type}-right: $value;
+        }
+        .#{$property}b-#{$breakpoint}-#{$size} {
+          #{$type}-bottom: $value;
+        }
+        .#{$property}l-#{$breakpoint}-#{$size} {
+          #{$type}-left: $value;
+        }
+        .#{$property}x-#{$breakpoint}-#{$size} {
+          #{$type}-left: $value;
+          #{$type}-right: $value;
+        }
+        .#{$property}y-#{$breakpoint}-#{$size} {
+          #{$type}-top: $value;
+          #{$type}-bottom: $value;
+        }
+      }
+    }
+  }
+}
+
+@include generate-spacing-utilities("m", "margin", $spacers);
+@include generate-spacing-utilities("p", "padding", $spacers);
+@include generate-responsive-spacing-utilities(
+  "m",
+  "margin",
+  $spacers,
+  $breakpoints
+);
+@include generate-responsive-spacing-utilities(
+  "p",
+  "padding",
+  $spacers,
+  $breakpoints
+);

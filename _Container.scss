@@ -1,0 +1,52 @@
+//CONTAINER
+// Define container widths for each breakpoint
+$container-max-widths: (
+  xs: 100%,
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px,
+);
+
+// Mixin to generate container classes
+@mixin generate-container-classes() {
+  .container,
+  .container-sm,
+  .container-md,
+  .container-lg,
+  .container-xl,
+  .container-xxl,
+  .container-fluid {
+    width: 100%;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  @each $breakpoint, $value in $breakpoints {
+    @if $breakpoint != xs {
+      @media (min-width: #{$value}) {
+        .container {
+          max-width: map-get($container-max-widths, $breakpoint);
+        }
+      }
+    }
+  }
+
+  @each $breakpoint, $value in $breakpoints {
+    @media (min-width: #{$value}) {
+      .container-#{$breakpoint} {
+        max-width: map-get($container-max-widths, $breakpoint);
+      }
+    }
+  }
+
+  .container-fluid {
+    max-width: 100%;
+  }
+}
+
+// Call the mixin to generate the classes
+@include generate-container-classes();
